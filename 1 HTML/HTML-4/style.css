@@ -1,0 +1,34 @@
+
+
+
+td{
+	width: 100px;
+	height: 40px;
+	border: 0.1px solid black;
+	text-align: center;
+
+	background-color: white;
+}
+
+	table{
+	margin-left: 20%;
+	margin-top: 5%;
+	border-spacing: 0px
+}
+
+.kostyl{
+	border: 0px solid black;
+}
+
+a:visited{
+	color: lightblue;
+}
+
+a:link{
+	color: red;
+}
+iframe{
+	border: 5px solid black;
+	margin-left: 30%;
+}
+

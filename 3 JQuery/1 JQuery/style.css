@@ -1,0 +1,28 @@
+
+.circle{
+    display: inline-block;
+    background-color: steelblue;
+    width: 75px;
+    height: 75px;
+    border-radius: 15%;
+}
+
+#field{
+    margin-left: 10%;
+}
+
+.lime{
+    background-color: lime !important;
+}
+
+.odd{
+    border-radius: 100% !important;
+    transition: 5s ease !important;
+}
+
+.clicked{
+    border-radius: 100% !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-color: lime !important;
+}

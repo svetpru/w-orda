@@ -1,0 +1,27 @@
+
+	.character:hover {
+		color: red;
+		transition: 0.75s linear;
+	}
+
+	#item {
+		color: white;
+	}
+
+	#item:hover {
+		color: black;
+	}
+	#item:hover {
+		font-size: 18pt;
+		transition: 2s linear;
+	}
+	
+	#header:hover {
+		text-decoration: line-through;
+		transition: 2s linear;
+	}
+
+
+
+
+

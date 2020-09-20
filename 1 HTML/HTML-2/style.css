@@ -1,0 +1,52 @@
+
+
+
+
+
+.green{
+	color: green
+}
+
+#yellow{
+	color: yellow
+}
+
+img {
+	width:400px;
+	transition: 5s linear;
+}
+
+img:hover {
+	width:600px;
+	transition: 5s linear;
+}
+
+
+.green:hover{
+	width:60pt;
+	transition: 2s linear;
+}
+
+
+#yellow:hover{
+	color: white;
+}
+
+#i:{
+	width:0,5pt;
+	transition: 10s linear;
+}
+
+
+h1{
+	color: blue;
+}
+
+
+h1:hover{
+	text-shadow: 200px 10px 2px red;
+	transition: 10s linear;
+}
+
+
+

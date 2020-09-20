@@ -1,0 +1,46 @@
+
+
+#p1{
+    display: inline-block;
+    background-color: red;
+    margin-left: 15%;
+    width: 150px;
+    height: 100px;
+}
+
+#p2{
+    display: inline-block;
+    background-color: blue;
+    margin-left: 50%;
+    width: 150px;
+    height: 100px;
+}
+
+
+
+
+#txtD{
+    margin-left: 40%;
+    width: 100px;
+    height: 50px;
+}
+
+#btnD{
+    margin-left: 0%;
+    width: 100px;
+    height: 50px;
+}
+
+div{
+    position: absolute;
+    bottom: 0%;
+}
+
+#fin{
+    position: absolute;
+    bottom: 500px;
+    height: 2px;
+    width: 100%;
+    border-top: 2px dashed black;
+}
+
