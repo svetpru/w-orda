@@ -28,16 +28,18 @@ function generateField(size){
 
     //Расчитать размер и местоположение #field и установить css()
     
+    let wight = size * 175 + 16 + "px";
+
     $("#field").css({
-        "width": size * "175" + "16",
-        "position": ("screenWidth" - "widht")/"2"
+        "wigth": wight,
+        "margin-left": (window.innerWidth - wight)/2 + "px"
     });
     
     //Добавляем картинки в НАЧАЛО #field
-    
-    $(img).attr("src", rubashka);
 
-    $("#field").prepend(img);
+    $(cards).attr("src", rubashka);
+
+    $("#field").prepend(cards);
 }
 
 
