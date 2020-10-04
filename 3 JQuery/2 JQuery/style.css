@@ -16,3 +16,54 @@ body{
     width: 30px;
 }
 
+/*Переворот карты*/
+.card{
+    display: inline-block;
+    perspective: 1000px;
+}
+
+.card, .front, .back{
+    width: 150px;
+    height: 150px;
+}
+
+.flipper{
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.5s linear;
+}
+
+.front, .back{
+    backface-visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.front{
+    z-index: 2;
+    background-image: url("img/01.png");
+    background-size: 150px 150px;
+}
+
+.back{
+    transform: rotateY(180deg);
+    background-size: 150px 150px;
+}
+
+.c1{
+    background-image: url("img/05.png");
+}
+.c2{
+    background-image: url("img/02.png");
+}
+.c3{
+    background-image: url("img/03.png");
+}
+.c4{
+    background-image: url("img/04.png");
+}
+
+.clicked{
+    transform: rotateY(180deg);
+}

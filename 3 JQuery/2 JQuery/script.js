@@ -1,50 +1,73 @@
 
-let img = $("<img>");
+//Готовый алгоритм перебора карт
+function shuffle(array) {
+    let copy = [], n = array.length, i;
+  
+    while (n) {
+  
+      i = Math.floor(Math.random() * array.length);
+  
+      if (i in array) {
+        copy.push(array[i]);
+        delete array[i];
+        n--;
+      }
+    }
+  
+    return copy;
+  }
 
-
-
-$(img).attr("src", "img/03.png");
-
-$("body").append(img);
-
-let rubashka = "img/01.png";
-
-let size = $("#size").attr("value");
 //Генерация поля
 function generateField(size){
-    //Размер 175х175px
-    //Ширина = size * ширину картинки + 16
-    //Местоположение поля = (ширина экрана - ширина поля)/2
 
-    // 1) Создать массив картинок размерности size*size
-    // 2) Задать параметры для картинок [размер, класс, id]
-    let cards = new Array(size*size);
-    cards.fill($("<img>").attr({
-        "src": rubashka,
-        "width": "150",
-        "class": "card",
-        "id": "rub"
-    }));
+    let cls = ["c1", "c2", "c3", "c4"];
+    let counter = 0;
+    let backs = [];
+    for(let i=0; i<(size*size); i+=2){
+        backs[i] = cls[counter];
+        backs[i+1] = cls[counter];
 
-    //Расчитать размер и местоположение #field и установить css()
+        if(counter < 3){
+            counter++;
+        }
+        else counter = 0;
+    }
     
-    let wight = size * 175 + 16 + "px";
+    console.log(backs);
 
+    let cards = [];
+    for(let i=0; i<(size*size); i++){
+        let card = $("<div>");
+        $(card).addClass("card");
+
+        let flipper = $("<div>");
+        $(flipper).addClass("flipper");
+
+        let front = $("<div>");
+        $(front).addClass("front");
+
+        let back = $("<div>");
+        $(back).addClass("back");
+
+        $(flipper).append(back);
+        $(flipper).prepend(front);
+        $(card).append(flipper);
+
+        cards.push(card);
+    }
+
+    $("#field").html("");
+
+    
     $("#field").css({
-        "wigth": wight,
-        "margin-left": (window.innerWidth - wight)/2 + "px"
+        "width": size*150+16 + "px",
+        "margin-left": (window.innerWidth - size*150+16)/2+"px"
     });
-    
-    //Добавляем картинки в НАЧАЛО #field
 
-    $(cards).attr("src", rubashka);
+    $("#field").append(cards);
 
-    $("#field").prepend(cards);
+    console.log(cards);
 }
-
-
-
-
 
 $("#btn").click(function (event) { 
    size = $("#size").val();
@@ -55,4 +78,9 @@ $("#btn").click(function (event) {
     else{
         alert("Число должно быть чётным!");
     }
+});
+
+//Переворот картинки при нажатии
+$(".flipper").click(function(event){
+    $(event.currentTarget).toggleClass("clicked");
 });
