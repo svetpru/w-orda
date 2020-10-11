@@ -1,5 +1,11 @@
 
-//Готовый алгоритм перебора карт
+//Структура поля
+let firstCard = null;
+let secondCard = null;
+let wait = false;
+
+
+//Готовый алгоритм перебора карт(Рандом)
 function shuffle(array) {
     let copy = [], n = array.length, i;
   
@@ -23,17 +29,18 @@ function generateField(size){
     let cls = ["c1", "c2", "c3", "c4"];
     let counter = 0;
     let backs = [];
+
     for(let i=0; i<(size*size); i+=2){
         backs[i] = cls[counter];
         backs[i+1] = cls[counter];
-
         if(counter < 3){
             counter++;
         }
         else counter = 0;
     }
     
-    console.log(backs);
+    //Шафл для массива карт
+    backs = shuffle(backs);
 
     let cards = [];
     for(let i=0; i<(size*size); i++){
@@ -47,7 +54,7 @@ function generateField(size){
         $(front).addClass("front");
 
         let back = $("<div>");
-        $(back).addClass("back");
+        $(back).addClass("back").addClass(backs[i])
 
         $(flipper).append(back);
         $(flipper).prepend(front);
@@ -56,6 +63,7 @@ function generateField(size){
         cards.push(card);
     }
 
+    //Обнуление поля
     $("#field").html("");
 
     
@@ -66,13 +74,53 @@ function generateField(size){
 
     $("#field").append(cards);
 
-    console.log(cards);
+
+    //Клик + анимация
+    $(".flipper").click(function(event){
+        if(wait == false){
+            $(event.currentTarget).toggleClass("clicked");
+        }  
+        checkCard(event.currentTarget);
+    });
+    
 }
+
+function checkCard(card){
+    //Выбор первой карты
+    if(firstCard == null){
+        firstCard = card;
+    }
+    //Выбор второй карты
+    else if(secondCard == null){
+        secondCard = card;
+        wait = true;
+        //Проверяем 1500мс; таймер
+        setTimeout(function(){
+            //Сравнение
+            if($(firstCard).children(".back").attr("class") == $(secondCard).children(".back").attr("class")){
+                //Найдены одинаковые карты
+                $(firstCard).css("visibility", "hidden");
+                $(secondCard).css("visibility", "hidden");
+            }
+            else{
+                //Переворот карты назад
+                
+            }
+        
+        //Забываем карты и разрешаем переворачивать карты
+        firstCard = null;
+        secondCard = null;
+        wait = false;
+        },1000);
+        
+
+        
+    }
+};
 
 $("#btn").click(function (event) { 
    size = $("#size").val();
     if(size%2 == 0){
-        alert("Приянто!");
         generateField(size);
     }
     else{
@@ -84,3 +132,5 @@ $("#btn").click(function (event) {
 $(".flipper").click(function(event){
     $(event.currentTarget).toggleClass("clicked");
 });
+
+
