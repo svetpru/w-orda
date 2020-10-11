@@ -77,13 +77,14 @@ function generateField(size){
 
     //Клик + анимация
     $(".flipper").click(function(event){
-        if(wait == false){
+        if(wait == false && firstCard != event.currentTarget){
             $(event.currentTarget).toggleClass("clicked");
+            checkCard(event.currentTarget);
         }  
-        checkCard(event.currentTarget);
     });
-    
 }
+
+
 
 function checkCard(card){
     //Выбор первой карты
