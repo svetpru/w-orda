@@ -104,7 +104,7 @@ function checkCard(card){
             }
             else{
                 //Переворот карты назад
-                
+                $(".flipper").removeClass("clicked");
             }
         
         //Забываем карты и разрешаем переворачивать карты
