@@ -13,3 +13,16 @@ let amongUs = girlClub.map(function(item, i){
     return item;
 });
 console.log(amongUs);
+
+let newGirlClub = [];
+
+girlClub.forEach((item, i)=>{
+    if(item != "Олег" || item != "Денис"){
+        
+    }
+    else{
+        newGirlClub.push(item);
+    }
+});
+
+console.log(newGirlClub);
