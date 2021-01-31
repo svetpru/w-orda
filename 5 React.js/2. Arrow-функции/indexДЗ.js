@@ -27,7 +27,9 @@ even.forEach((item, i)=>{
     newNumbers.push(item);
 });
 
+
 console.log(newNumbers);
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 let serverData = [25, "Hello", 15321, 'a', '2', true, -43.3];
